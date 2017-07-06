@@ -108,7 +108,8 @@ MLPs can be `trained` through backpropagation [2]_, which is a supervised
 learning technique. This training procedure requires a set of features with
 labels (or targets). Using |project|, this is passed to the `train()` method of
 available MLP trainers in two different 2D `NumPy`_ arrays, one for the input
-(features) and one for the output (targets).
+(features) and one for the output (targets). The number of rows in those two
+2D arrays should be equal to the batch size set when creating the model.
 
 .. doctest::
    :options: +NORMALIZE_WHITESPACE

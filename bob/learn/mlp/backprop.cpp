@@ -390,6 +390,9 @@ thrown.\n\
    \n\
    In BackProp, training is done in batches. You should set the batch\n\
    size properly at class initialization or use setBatchSize().\n\
+   The number of rows in the input should be in accordance with the\n\
+   set batch size. If the batch size currently set is incompatible\n\
+   with the given data an exception is raised.\n\
 \n\
 .. note::\n\
    \n\
