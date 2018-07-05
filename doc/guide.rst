@@ -43,19 +43,14 @@ for this):
 .. doctest::
 
   >>> input_to_hidden0 = numpy.ones((3,3), 'float64')
-  >>> input_to_hidden0
-  array([[ 1.,  1.,  1.],
-         [ 1.,  1.,  1.],
-         [ 1.,  1.,  1.]])
+  >>> numpy.allclose(input_to_hidden0,[[ 1.,  1.,  1.], [ 1.,  1.,  1.],[ 1.,  1.,  1.]])
+  True
   >>> hidden0_to_hidden1 = 0.5*numpy.ones((3,2), 'float64')
-  >>> hidden0_to_hidden1
-  array([[ 0.5,  0.5],
-         [ 0.5,  0.5],
-         [ 0.5,  0.5]])
+  >>> numpy.allclose(hidden0_to_hidden1, [[ 0.5,  0.5],[ 0.5,  0.5],[ 0.5,  0.5]])
+  True
   >>> hidden1_to_output = numpy.array([0.3, 0.2], 'float64').reshape(2,1)
-  >>> hidden1_to_output
-  array([[ 0.3],
-         [ 0.2]])
+  >>> numpy.allclose(hidden1_to_output, [[ 0.3], [ 0.2]])
+  True
   >>> bias_hidden0 = numpy.array([-0.2, -0.3, -0.1], 'float64')
   >>> bias_hidden0
   array([-0.2, -0.3, -0.1])
@@ -63,8 +58,8 @@ for this):
   >>> bias_hidden1
   array([-0.7,  0.2])
   >>> bias_output = numpy.array([0.5], 'float64')
-  >>> bias_output
-  array([ 0.5])
+  >>> numpy.allclose(bias_output, [ 0.5])
+  True
   >>> mlp.weights = (input_to_hidden0, hidden0_to_hidden1, hidden1_to_output)
   >>> mlp.biases = (bias_hidden0, bias_hidden1, bias_output)
 
@@ -101,8 +96,8 @@ through this machine. This is done using the ``()`` operator, like for a
 
 .. doctest::
 
-  >>> mlp(numpy.array([0.1, -0.1, 0.2], 'float64'))
-  array([ 0.33])
+  >>> numpy.allclose(mlp(numpy.array([0.1, -0.1, 0.2], 'float64')), [ 0.33])
+  True
 
 MLPs can be `trained` through backpropagation [2]_, which is a supervised
 learning technique. This training procedure requires a set of features with
